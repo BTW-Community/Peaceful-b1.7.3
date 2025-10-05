@@ -10,10 +10,12 @@ import java.util.Random;
 
 @SuppressWarnings("unused")
 public class mod_BTWPeaceful extends BaseMod {
-    public Block blockFossil;
+    public static Block blockFossil;
+    @MLProp(name="BlockFossilID", info="The Block ID for the Fossil block", min=0, max=255)
+    public static int blockFossilID = 220;
 
     public mod_BTWPeaceful() {
-        blockFossil = new FCBlockFossil(220);
+        blockFossil = new FCBlockFossil(mod_BTWPeaceful.blockFossilID);
         ModLoader.AddName(blockFossil, "Fossil");
         ModLoader.RegisterBlock(blockFossil);
         blockFossil.blockIndexInTexture = ModLoader.addOverride("/terrain.png", "/btwmodtex/fossil.png");
